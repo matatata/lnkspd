@@ -12,7 +12,7 @@
 #include <unistd.h>
 
 
-#include <pciutils.h>
+#include <pci/pci.h>
 
 
 struct pci_access *pacc;

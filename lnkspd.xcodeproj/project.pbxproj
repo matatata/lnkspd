@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		95186BAE22B6A93E00C7F08B /* libpci.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95186BAC22B6A7D600C7F08B /* libpci.a */; };
+		95E3AD1422B99C4500537CB0 /* DirectHW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95E3AD1322B99C4500537CB0 /* DirectHW.framework */; };
+		95E3AD1622B99D2200537CB0 /* libpci.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95E3AD1522B99D2200537CB0 /* libpci.a */; };
 		95F0D48422B5A65200A4DF37 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 95F0D48322B5A65200A4DF37 /* main.c */; };
 		95F0D48E22B5ABF900A4DF37 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F0D48D22B5ABF900A4DF37 /* IOKit.framework */; };
 /* End PBXBuildFile section */
@@ -25,10 +26,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		95186BAC22B6A7D600C7F08B /* libpci.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpci.a; path = ../pciutils/lib/libpci.a; sourceTree = "<group>"; };
+		95E3AD1322B99C4500537CB0 /* DirectHW.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DirectHW.framework; path = ../../../../../Library/Frameworks/DirectHW.framework; sourceTree = "<group>"; };
+		95E3AD1522B99D2200537CB0 /* libpci.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpci.a; path = ../../../Downloads/pciutils/lib/libpci.a; sourceTree = "<group>"; };
 		95F0D48022B5A65200A4DF37 /* lnkspd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = lnkspd; sourceTree = BUILT_PRODUCTS_DIR; };
 		95F0D48322B5A65200A4DF37 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		95F0D48B22B5ABB600A4DF37 /* allib.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = allib.o; path = ../pciutils/allib.o; sourceTree = "<group>"; };
 		95F0D48D22B5ABF900A4DF37 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -37,7 +38,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95186BAE22B6A93E00C7F08B /* libpci.a in Frameworks */,
+				95E3AD1622B99D2200537CB0 /* libpci.a in Frameworks */,
+				95E3AD1422B99C4500537CB0 /* DirectHW.framework in Frameworks */,
 				95F0D48E22B5ABF900A4DF37 /* IOKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				95F0D48322B5A65200A4DF37 /* main.c */,
-				95F0D48222B5A65200A4DF37 /* mypci */,
 				95F0D48122B5A65200A4DF37 /* Products */,
 				95F0D48A22B5ABB500A4DF37 /* Frameworks */,
 			);
@@ -63,19 +64,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		95F0D48222B5A65200A4DF37 /* mypci */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = mypci;
-			sourceTree = "<group>";
-		};
 		95F0D48A22B5ABB500A4DF37 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				95186BAC22B6A7D600C7F08B /* libpci.a */,
+				95E3AD1522B99D2200537CB0 /* libpci.a */,
+				95E3AD1322B99C4500537CB0 /* DirectHW.framework */,
 				95F0D48D22B5ABF900A4DF37 /* IOKit.framework */,
-				95F0D48B22B5ABB600A4DF37 /* allib.o */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -258,7 +252,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				LIBRARY_SEARCH_PATHS = /Users/matteo/Downloads/pciutils/lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -268,7 +267,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				LIBRARY_SEARCH_PATHS = /Users/matteo/Downloads/pciutils/lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
