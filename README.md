@@ -20,7 +20,7 @@ https://github.com/matatata/directhw and
 
 https://github.com/matatata/pciutils
 
-I've created a [pkg installer file](matatata.lnkspd.pkg) that also includes a 
+I've created a [pkg installer file](https://github.com/matatata/lnkspd/raw/master/matatata.lnkspd.pkg) that also includes a 
 LaunchDaemon (the plist file) that executes the script on boot.
 
 
