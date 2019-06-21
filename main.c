@@ -149,6 +149,18 @@ int set_target_speed(struct pci_dev *dev,unsigned int target_speed ){
         fprintf(stderr,"no CAP_ID_EXP");
         return 1;
     }
+
+
+    unsigned int linkstatus = pci_read_word(dev, cap->addr + 0x12);
+    unsigned int linkspeed = linkstatus & 0xF; 
+    unsigned int linkwidth = linkstatus >> 4 & 0x3F;
+
+    if(target_speed == linkspeed){
+      printf("nothing to do, link speed is %d already\n",target_speed);
+      return 0;
+    }
+
+
     
     unsigned int lnk_ctrl_reg2 = pci_read_word(dev, cap->addr+0x30);
     lnk_ctrl_reg2 &= ~0xF; // Clear lower 4 bits.
@@ -178,9 +190,9 @@ int set_target_speed(struct pci_dev *dev,unsigned int target_speed ){
         usleep(1000);
     }
     
-    unsigned int linkstatus = pci_read_word(dev, cap->addr + 0x12);
-    unsigned int linkspeed = linkstatus & 0xF;
-    unsigned int linkwidth = linkstatus >> 4 & 0x3F;
+    linkstatus = pci_read_word(dev, cap->addr + 0x12);
+    linkspeed = linkstatus & 0xF;
+    linkwidth = linkstatus >> 4 & 0x3F;
     
     
     printf("Now PCIe%d.0\t%dx\t\n", linkspeed,linkwidth);
