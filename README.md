@@ -16,10 +16,11 @@ sudo /usr/local/sbin/lnkspd.sh -s 00:01.0 -t 2
 
 To build it yourself you'd first have to build and install:
 
-https://github.com/matatata/directhw
+https://github.com/matatata/directhw and
+
 https://github.com/matatata/pciutils
 
-I've created a pkg installer file that also includes a 
+I've created a [pkg installer file](matatata.lnkspd.pkg) that also includes a 
 LaunchDaemon (the plist file) that executes the script on boot.
 
 
