@@ -1,5 +1,3 @@
-
-sudo tee /Library/LaunchDaemons/de.infomac.lnkspd.plist << EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -12,14 +10,13 @@ sudo tee /Library/LaunchDaemons/de.infomac.lnkspd.plist << EOF
 		<array>
 			<string>/usr/local/sbin/lnkspd.sh</string>
 			<string>-s</string>
-			<string>00:01.2</string>
+			<string>00:01.0</string> <!-- pci controller slot 2 in MacPro3,1--> 
 			<string>-t</string>
-			<string>1</string>
+			<string>2</string> <!-- set to pci 2.0 -->
 		</array>
 		<key>LaunchOnlyOnce</key>
 		<true/>
+		<key>RunAtLoad</key>
+		<true/>
 	</dict>
 </plist>
-EOF
-
-sudo launchctl load -w /Library/LaunchDaemons/de.infomac.lnkspd.plist
